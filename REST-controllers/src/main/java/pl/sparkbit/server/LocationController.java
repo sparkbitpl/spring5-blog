@@ -1,6 +1,5 @@
 package pl.sparkbit.server;
 
-import org.reactivestreams.Publisher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import pl.sparkbit.model.Address;
 import pl.sparkbit.model.LatLng;
 import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
 
 import javax.validation.Valid;
 
@@ -23,10 +21,10 @@ public class LocationController {
     private static final Logger LOG = LoggerFactory.getLogger(LocationController.class);
 
 
-    private final RxLocationService locationService;
+    private final ReactiveLocationService locationService;
 
     @Autowired
-    public LocationController(RxLocationService locationService) {
+    public LocationController(ReactiveLocationService locationService) {
         this.locationService = locationService;
     }
 
@@ -57,11 +55,11 @@ public class LocationController {
     }
 
 
-    @ExceptionHandler
-    public Publisher<String> handleException(Exception e) {
-        LOG.error("Error! {}", e);
-        return Mono.just("Oops. Something went wrong!");
-    }
+//    @ExceptionHandler
+//    public Publisher<String> handleException(Exception e) {
+//        LOG.error("Error! {}", e);
+//        return Mono.just("Oops. Something went wrong!");
+//    }
 
     @GetMapping(path = "location", produces = "text/plain")
     public String getLocation() {

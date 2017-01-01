@@ -12,9 +12,9 @@ import java.time.Duration;
  * Created by chanter on 21.12.2016.
  */
 @Service
-public class RxLocationService {
+public class ReactiveLocationService {
 
-    private static final Logger LOG = LoggerFactory.getLogger(RxLocationService.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ReactiveLocationService.class);
 
     void storeCoordinates(Flux<LatLng> coordinates) {
         Flux.interval(Duration.ofSeconds(3))

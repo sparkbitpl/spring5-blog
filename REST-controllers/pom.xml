@@ -57,6 +57,13 @@
             <artifactId>reactor-netty</artifactId>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/io.netty/netty-handler-proxy -->
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-handler-proxy</artifactId>
+            <version>4.1.6.Final</version>
+        </dependency>
+
         <dependency>
             <groupId>io.reactivex</groupId>
             <artifactId>rxnetty-http</artifactId>
