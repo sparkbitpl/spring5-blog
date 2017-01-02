@@ -26,7 +26,7 @@ public class LocationClient {
 
     public static void main(String[] argv) {
         ClientHttpConnector httpConnector = new ReactorClientHttpConnector();
-        ClientRequest<Flux<LatLng>> request = ClientRequest.POST("http://localhost:8080/location")
+        ClientRequest<Flux<LatLng>> request = ClientRequest.POST("http://localhost:8080/location/address")
                 .accept(MediaType.APPLICATION_JSON_UTF8)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .body(BodyInserters.fromPublisher(getLatLngs(), LatLng.class));
@@ -40,7 +40,7 @@ public class LocationClient {
 
     private static Flux<LatLng> getLatLngs() {
         Random random = new Random();
-        return Flux.range(0, 9)
+        return Flux.range(0, 3)
                 .zipWith(Flux.interval(Duration.ofSeconds(1)))
                 .map(x -> new LatLng(random.nextDouble(), random.nextDouble()))
                 .doOnNext(ll -> LOG.info("Produced: {}", ll));
