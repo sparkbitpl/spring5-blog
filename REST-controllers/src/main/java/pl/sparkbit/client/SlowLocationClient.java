@@ -1,6 +1,5 @@
 package pl.sparkbit.client;
 
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
@@ -14,7 +13,6 @@ import reactor.core.publisher.Flux;
 import reactor.util.function.Tuple2;
 
 import java.time.Duration;
-import java.util.Random;
 
 /**
  * Created by chanter on 14.12.2016.
@@ -36,8 +34,7 @@ public class SlowLocationClient {
     }
 
     private static Flux<LatLng> getPayload() {
-        Random random = new Random();
-        return Flux.just(new LatLng(random.nextDouble(), random.nextDouble()))
+        return Flux.just(new LatLng(52.1333656, 21.0633831))
                 .zipWith(Flux.interval(Duration.ofSeconds(10)))
                 .map(Tuple2::getT1);
     }

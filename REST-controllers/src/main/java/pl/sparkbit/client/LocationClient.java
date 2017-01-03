@@ -1,6 +1,5 @@
 package pl.sparkbit.client;
 
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
@@ -14,7 +13,6 @@ import pl.sparkbit.model.LatLng;
 import reactor.core.publisher.Flux;
 
 import java.time.Duration;
-import java.util.Random;
 
 /**
  * Created by chanter on 14.12.2016.
@@ -22,7 +20,6 @@ import java.util.Random;
 public class LocationClient {
 
     private static final Logger LOG = LoggerFactory.getLogger(LocationClient.class);
-
 
     public static void main(String[] argv) {
         ClientHttpConnector httpConnector = new ReactorClientHttpConnector();
@@ -39,10 +36,9 @@ public class LocationClient {
     }
 
     private static Flux<LatLng> getLatLngs() {
-        Random random = new Random();
         return Flux.range(0, 3)
                 .zipWith(Flux.interval(Duration.ofSeconds(1)))
-                .map(x -> new LatLng(random.nextDouble(), random.nextDouble()))
+                .map(x -> new LatLng(41.9102411,12.395572))
                 .doOnNext(ll -> LOG.info("Produced: {}", ll));
     }
 }
