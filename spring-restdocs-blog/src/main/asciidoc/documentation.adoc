@@ -1,0 +1,40 @@
+= CMS API documentation
+:doctype: book
+:icons: font
+:toc:
+
+== Retrieve a document by ID
+
+Request parameters:
+
+include::{snippets}/retrieveDocument/path-parameters.adoc[]
+
+curl request:
+
+include::{snippets}/retrieveDocument/curl-request.adoc[]
+
+HTTP response:
+
+include::{snippets}/retrieveDocument/http-response.adoc[]
+
+Response fields:
+
+include::{snippets}/retrieveDocument/response-fields.adoc[]
+
+== Create a new document
+
+HTTP request:
+
+include::{snippets}/createDocument/http-request.adoc[]
+
+curl request:
+
+include::{snippets}/createDocument/curl-request.adoc[]
+
+HTTP response:
+
+include::{snippets}/createDocument/http-response.adoc[]
+
+Response fields:
+
+include::{snippets}/createDocument/response-fields.adoc[]
