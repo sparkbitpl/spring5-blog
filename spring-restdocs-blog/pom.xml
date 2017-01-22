@@ -81,6 +81,9 @@
 						<configuration>
 							<backend>html</backend>
 							<doctype>book</doctype>
+							<outputDirectory>
+								${project.build.outputDirectory}/static/docs
+							</outputDirectory>
 							<attributes>
 								<snippets>${snippetsDirectory}</snippets>
 							</attributes>
